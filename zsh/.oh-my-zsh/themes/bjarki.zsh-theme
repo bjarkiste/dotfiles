@@ -1,7 +1,7 @@
 PROMPT=''
 
 if [[ -n $SSH_CONNECTION ]]; then
-	PROMPT+='%{$fg[red]%}%n@%m%{$reset_color%}' 
+	PROMPT+='%{$fg[red]%}%n@%m%{$reset_color%} '
 fi
 
 PROMPT+='%{$fg[blue]%}$(zsh ~/.oh-my-zsh/path.zsh -l -t)%{$reset_color%}'
