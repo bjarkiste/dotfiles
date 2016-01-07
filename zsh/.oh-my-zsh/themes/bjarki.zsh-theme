@@ -1,6 +1,6 @@
 PROMPT=''
 
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION ]] || [[ $EUID -eq 0 ]]; then
 	PROMPT+='%{$fg[red]%}%n@%m%{$reset_color%} '
 fi
 
