@@ -1,10 +1,8 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/bjarki/.oh-my-zsh
+export ZSH=/home/bjarki/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="bjarki"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -49,11 +47,11 @@ ZSH_THEME="bjarki"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git taskwarrior zsh-syntax-highlighting)
 
 # User configuration
 
-  export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -74,13 +72,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias q="exit"
-alias c="clear"
+# Aliases
+source $HOME/.aliases
+
+# Functions
+add_sudo ()
+{
+	prefix="sudo"
+	BUFFER="$prefix $BUFFER"
+	CURSOR=$(($CURSOR + $#prefix + 1))
+}
+zle -N add_sudo
+bindkey "^f" add_sudo
