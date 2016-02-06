@@ -1,0 +1,6 @@
+
+alias q="exit"
+alias :q="exit"
+alias c="clear"
+alias sl="ls"
+alias tl="task list"
