@@ -123,13 +123,29 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+bindsym $mod+r mode "resize"
 
+
+# Sticky windows
+bindsym $mod+Shift+s sticky toggle
+
+# Volume control
 bindsym $mod+KP_Add exec amixer -q set Master 4%+ unmute
 bindsym $mod+KP_Subtract exec amixer -q set Master 4%- unmute
 
-bindsym $mod+r mode "resize"
-
+# Sets border size
 new_window 1pixel
+
+# Makes Steam behave a little nicer
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - Update News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -139,4 +155,5 @@ bar {
 		#font pango:DejaVu Sans Mono, Icons 8
 }
 
+# Set background
 exec feh --bg-fill ~/.config/i3/bg
