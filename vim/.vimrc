@@ -33,6 +33,7 @@ set so=7		"leave some lines when scrolling
 
 " Indent
 set tabstop=4
+set shiftwidth=0
 set smartindent autoindent
 
 " Search
