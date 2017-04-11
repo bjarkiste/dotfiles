@@ -4,3 +4,13 @@ alias :q="exit"
 alias c="clear"
 alias sl="ls"
 alias weather="curl -s wttr.in | head -n -3"
+
+# Functions
+add_sudo ()
+{
+	prefix="sudo"
+	BUFFER="$prefix $BUFFER"
+	CURSOR=$(($CURSOR + $#prefix + 1))
+}
+zle -N add_sudo
+bindkey "^f" add_sudo

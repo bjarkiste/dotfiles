@@ -125,6 +125,37 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+mode "move" {
+	bindsym $mod+Tab focus right
+
+	bindsym Left  move left
+    bindsym Down  move down
+    bindsym Up    move up
+    bindsym Right move right
+
+    bindsym h     move left
+    bindsym j     move down
+    bindsym k     move up
+    bindsym l     move right
+
+	bindsym shift+Left  move left 1px
+    bindsym shift+Down  move down 1px
+    bindsym shift+Up    move up 1px
+    bindsym shift+Right move right 1px
+
+    bindsym shift+h     move left 1px
+    bindsym shift+j     move down 1px
+    bindsym shift+k     move up 1px
+    bindsym shift+l     move right 1px
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+m mode "move" focus floating
+
+# Lock
+bindsym $mod+Shift+w exec /usr/local/bin/i3lock.sh
 
 # Sticky windows
 bindsym $mod+Shift+s sticky toggle
@@ -157,3 +188,12 @@ bar {
 
 # Set background
 exec feh --bg-fill ~/.config/i3/bg
+
+# Start Compton
+exec compton --config /home/bjarki/.config/compton.conf -CGb
+
+### Settings stuff
+# Mouse sensetivity
+exec xinput --set-prop 'Logitech Gaming Mouse G400' 'libinput Accel Speed' -0.55
+# No screen blank
+exec xset s off -dpms
