@@ -35,6 +35,7 @@ set so=7		"leave some lines when scrolling
 set tabstop=4
 set shiftwidth=0
 set smartindent autoindent
+set expandtab
 
 " Search
 set incsearch	"search as you type
