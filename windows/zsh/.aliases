@@ -1,0 +1,25 @@
+alias q="exit"
+alias :q="exit"
+alias c="clear"
+alias sl="ls"
+alias weather="curl -s wttr.in | head -n -3"
+
+alias projects="cd /mnt/c/Projects"
+alias funprojects="cd /mnt/c/FunProjects"
+alias imagine="cd /mnt/c/Projects/Imagine"
+
+# Functions
+add_sudo ()
+{
+	prefix="sudo"
+	BUFFER="$prefix $BUFFER"
+	CURSOR=$(($CURSOR + $#prefix + 1))
+}
+zle -N add_sudo
+bindkey "^f" add_sudo
+
+docker()
+{
+    /usr/bin/docker $@ | cut -c-$(tput cols)
+}
+zle -N docker
