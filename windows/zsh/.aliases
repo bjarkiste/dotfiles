@@ -20,6 +20,10 @@ bindkey "^f" add_sudo
 
 docker()
 {
-    /usr/bin/docker $@ | cut -c-$(tput cols)
+    if [ "$1" = "c" ]; then
+        /usr/bin/docker rm -f $(/usr/bin/docker ps -aq)
+    else
+        /usr/bin/docker $@ | cut -c-$(tput cols)
+    fi
 }
 zle -N docker
