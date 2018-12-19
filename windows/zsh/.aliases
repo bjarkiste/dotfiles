@@ -8,6 +8,8 @@ alias projects="cd /mnt/c/Projects"
 alias funprojects="cd /mnt/c/FunProjects"
 alias imagine="cd /mnt/c/Projects/Imagine"
 
+alias clip="clip.exe"
+
 # Functions
 add_sudo ()
 {
