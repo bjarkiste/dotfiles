@@ -19,3 +19,6 @@ export DOCKER_HOST='tcp://0.0.0.0:2375'
 # Set color scheme to .dircolors
 eval "$(dircolors ~/.dircolors)";
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+cd ~
