@@ -23,13 +23,7 @@ bindkey "^f" add_sudo
 docker()
 {
     if [[ "$1" = "c" ]]; then
-        DOCKERPS=$(/usr/bin/docker ps -aq)
-
-        if [ -z "$DOCKERPS" ]; then
-            echo "No containers to remove :^)"
-        else
-            /usr/bin/docker rm -f $DOCKERPS
-        fi
+        /usr/bin/docker rm -f $(/usr/bin/docker ps -aq)
     else
         /usr/bin/docker $@ | cut -c-$(tput cols)
     fi
