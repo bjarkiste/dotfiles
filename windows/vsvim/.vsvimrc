@@ -1,0 +1,12 @@
+" Interface
+set number
+set so=7
+
+" Indent
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+vmap <Tab> >>
+vmap <S-Tab> <<
