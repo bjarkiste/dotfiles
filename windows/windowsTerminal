@@ -6,7 +6,7 @@
 
     "alwaysShowTabs": false,
     "showTabsInTitlebar": false,
-    "showTerminalTitleInTitlebar": false,
+    "showTerminalTitleInTitlebar": true,
 
     "initialCols": 120,
     "initialRows": 30,
