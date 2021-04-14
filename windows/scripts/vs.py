@@ -13,22 +13,31 @@ def startDaemon(s):
     else:
         os._exit(0)
 
+def startDir(arg, search):
+    os.chdir(arg)
+    solutions = glob.glob('*.sln')
+    if (len(solutions) == 0):
+        if (search and os.path.isdir('src')):
+            startDir('src', False)
+            return
+
+        print('No solutions found :^)')
+        os._exit(2)
+
+    startDaemon(f'"{vsPath}" "{solutions[0]}"')
+
+
+
 if (__name__ == '__main__'):
     if (len(sys.argv) == 1):
         startDaemon(f'"{vsPath}"')
     else:
         arg = sys.argv[1]
         if (not os.path.exists(arg)):
-            print('Path does not exist :^)')
+            print('Path not found :^)')
             os._exit(2)
 
         if (os.path.isfile(arg)):
             startDaemon(f'"{vsPath}" "{arg}"')
         else:
-            os.chdir(arg)
-            solutions = glob.glob('*.sln')
-            if (len(solutions) == 0):
-                print('No solutions found in folder :^)')
-                os._exit(2)
-
-            startDaemon(f'"{vsPath}" "{solutions[0]}"')
+            startDir(arg, True)
