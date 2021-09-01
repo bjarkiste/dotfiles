@@ -6,7 +6,6 @@ alias weather="curl -s wttr.in | head -n -3"
 
 alias projects="cd /mnt/c/Projects"
 alias funprojects="cd /mnt/c/Projects/FunProjects"
-alias imagine="cd /mnt/c/Projects/Imagine"
 alias vs=~/.scripts/vs.py
 
 alias clip="clip.exe"

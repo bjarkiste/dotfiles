@@ -115,7 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export DOCKER_HOST='tcp://0.0.0.0:2375'
 
 # Launch zsh
 if [ -t 1 ]; then

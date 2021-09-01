@@ -13,9 +13,6 @@ fi
 # Aliases
 source $HOME/.aliases
 
-# Connect to docker
-export DOCKER_HOST='tcp://0.0.0.0:2375'
-
 # Set color scheme to .dircolors
 eval "$(dircolors ~/.dircolors)";
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
