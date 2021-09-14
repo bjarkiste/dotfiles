@@ -2,11 +2,12 @@
 set number
 set so=7
 
-" Indent
+" Search
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
 
-vmap <Tab> >>
-vmap <S-Tab> <<
+" Vsvimguide settings
+set clipboard=unnamed
+map <Space><Space> :vsc Tools.InvokeAceJumpCommand<CR>
