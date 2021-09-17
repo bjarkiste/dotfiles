@@ -17,5 +17,8 @@ source $HOME/.aliases
 eval "$(dircolors ~/.dircolors)";
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+export VISUAL=vim
+export EDITOR=vim
+
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 cd ~

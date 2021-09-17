@@ -1,4 +1,5 @@
 " Plugins
+execute pathogen#infect()
 set nocompatible
 filetype off "required for vundle
 set rtp+=~/.vim/bundle/Vundle.vim "runtime path to include vundle
@@ -8,28 +9,24 @@ Plugin 'scrooloose/syntastic'	"syntax error checker
 Plugin 'flazz/vim-colorschemes'	"colorschemes
 call vundle#end()
 
-" Syntastic {{{
-		set statusline+=%#warningmsg#
-		set statusline+=%{SyntasticStatuslineFlag()}
-		set statusline+=%*
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-		let g:syntastic_always_populate_loc_list = 1
-		let g:syntastic_auto_loc_list = 0
-		let g:syntastic_check_on_open = 1
-		let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
-		" #c++14
-		let g:syntastic_cpp_compiler = "g++"
-		let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-" }}}
+" #c++14
+let g:syntastic_cpp_compiler = "g++"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
 
 " Interface
 syntax enable	"syntax highlighting
 set number		"show line numbering
 set so=7		"leave some lines when scrolling
-
-" Colorscheme currently set in terminator
-" colorscheme gruvbox
 
 " Indent
 set tabstop=4
@@ -56,7 +53,7 @@ set undodir=~/.vim/undo
 set directory=~/.vim/tmp
 
 " WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
 if executable(s:clip)
     augroup WSLYank
         autocmd!
