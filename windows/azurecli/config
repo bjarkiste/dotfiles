@@ -1,0 +1,11 @@
+[cloud]
+name = AzureCloud
+
+[core]
+output = jsonc
+collect_telemetry = no
+cache_ttl = 10
+
+[logging]
+enable_log_file = no
+

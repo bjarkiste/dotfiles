@@ -5,6 +5,7 @@ alias sl="ls"
 alias weather="curl -s wttr.in | head -n -3"
 
 alias projects="cd /mnt/c/Projects"
+alias proj="cd /mnt/c/Projects"
 alias funprojects="cd /mnt/c/Projects/FunProjects"
 alias vs=~/.scripts/vs.py
 
@@ -29,3 +30,9 @@ docker()
     fi
 }
 zle -N docker
+
+azt()
+{
+    az "$@" --output=table | cut -c-$(tput cols)
+}
+zle -N azt
