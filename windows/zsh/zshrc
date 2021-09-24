@@ -20,5 +20,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export VISUAL=vim
 export EDITOR=vim
 
+# Dotnet cli settings
+export PATH="$PATH:$HOME/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 cd ~
