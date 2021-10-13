@@ -12,6 +12,7 @@ fi
 
 # Aliases
 source $HOME/.aliases
+source <(kubectl completion zsh)
 
 # Set color scheme to .dircolors
 eval "$(dircolors ~/.dircolors)";
