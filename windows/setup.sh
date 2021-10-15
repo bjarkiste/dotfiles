@@ -7,6 +7,8 @@ cp dircolors ~/.dircolors
 mkdir -p ~/.vim/backup ~/.vim/tmp ~/.vim/undo
 cp vim/vimrc ~/.vimrc
 cp vsvim/vsvimrc /mnt/c/Users/$USER/.vsvimrc
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 # zsh
 sudo apt update && sudo apt install -y zsh
@@ -17,9 +19,9 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done"
 
-cp -f aliases ~/.aliases
-cp -f zpreztorc ~/.zpreztorc
-cp -f zshrc ~/.zshrc
+cp -f zsh/aliases ~/.aliases
+cp -f zsh/zpreztorc ~/.zpreztorc
+cp -f zsh/zshrc ~/.zshrc
 
 chsh -s /bin/zsh
 

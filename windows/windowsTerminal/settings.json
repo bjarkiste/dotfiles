@@ -38,9 +38,7 @@
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl",
                 "useAcrylic": false
-            },
-            {},
-            {}
+            }
         ]
     },
     "schemes": 
