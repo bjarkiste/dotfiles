@@ -19,6 +19,8 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done"
 
+git clone https://github.com/agkozak/zsh-z.git ~/.zprezto-contrib/zsh-z
+
 cp -f zsh/aliases ~/.aliases
 cp -f zsh/zpreztorc ~/.zpreztorc
 cp -f zsh/zshrc ~/.zshrc

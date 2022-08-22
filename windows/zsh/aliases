@@ -2,7 +2,7 @@ alias q="exit"
 alias :q="exit"
 alias c="clear"
 alias sl="ls"
-alias weather="curl -s wttr.in | head -n -3"
+alias weather="curl -s wttr.in | head -n -2"
 
 alias projects="cd /mnt/c/Projects"
 alias proj="cd /mnt/c/Projects"
@@ -10,6 +10,10 @@ alias funprojects="cd /mnt/c/Projects/FunProjects"
 alias vs=~/.scripts/vs.py
 
 alias clip="clip.exe"
+
+alias kc="kubectl"
+alias kx="kubectl ctx"
+alias kn="kubectl ns"
 
 # Functions
 add_sudo ()
