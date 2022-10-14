@@ -21,6 +21,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 export VISUAL=vim
 export EDITOR=vim
 
+export ZSHZ_CASE=smart
+
 # Add Krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 

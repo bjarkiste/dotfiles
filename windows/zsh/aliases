@@ -11,7 +11,7 @@ alias vs=~/.scripts/vs.py
 
 alias clip="clip.exe"
 
-alias kc="kubectl"
+alias k="kubectl"
 alias kx="kubectl ctx"
 alias kn="kubectl ns"
 
@@ -29,6 +29,8 @@ docker()
 {
     if [[ "$1" = "c" ]]; then
         /usr/bin/docker rm -f $(/usr/bin/docker ps -aq)
+    elif [[ "$1" = "logs" ]]; then
+        /usr/bin/docker $@
     else
         /usr/bin/docker $@ | cut -c-$(tput cols)
     fi
