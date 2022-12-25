@@ -1,0 +1,9 @@
+" Interface
+set number
+set so=7
+
+" Search
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
