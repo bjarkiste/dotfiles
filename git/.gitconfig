@@ -1,0 +1,7 @@
+[user]
+	email = bjarkiste@gmail.com
+	name = bjarkiste
+[init]
+	defaultBranch = master
+[push]
+	autoSetupRemote = true

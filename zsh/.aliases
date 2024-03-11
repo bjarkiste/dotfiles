@@ -1,0 +1,40 @@
+alias q="exit"
+alias :q="exit"
+alias c="clear"
+alias sl="ls"
+
+alias vim="nvim"
+
+alias clip="xclip -sel clip"
+
+alias k="kubectl"
+alias kx="kubectx"
+alias kn="kubens"
+
+# Functions
+add_sudo ()
+{
+	prefix="sudo"
+	BUFFER="$prefix $BUFFER"
+	CURSOR=$(($CURSOR + $#prefix + 1))
+}
+zle -N add_sudo
+bindkey "^f" add_sudo
+
+docker()
+{
+    if [[ "$1" = "c" ]]; then
+        /usr/bin/docker rm -f $(/usr/bin/docker --config="asdf" ps -aq)
+    elif [[ "$1" = "logs" ]]; then
+        /usr/bin/docker $@
+    else
+        /usr/bin/docker $@ | cut -c-$(tput cols)
+    fi
+}
+zle -N docker
+
+azt()
+{
+    az "$@" --output=table | cut -c-$(tput cols)
+}
+zle -N azt
