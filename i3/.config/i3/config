@@ -227,7 +227,7 @@ bindsym $mod+m mode "move" focus floating
 
 # Program specific settings
 for_window [class="^Slack$"] floating enable
-for_window [class="^Microsoft Teams - Preview$"] floating enable
+for_window [class="^teams-for-linux$"] floating enable
 for_window [class="^KeePass2$"] floating enable resize set 900 700
 
 # Lock
