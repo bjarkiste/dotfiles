@@ -63,6 +63,8 @@ bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+d exec --no-startup-id "rofi -show run"
 # start emoji picker, 60 = .
 bindcode $mod+60 exec "rofimoji -s neutral"
+# start screenshot tool
+bindsym $mod+Shift+s exec --no-startup-id "flameshot gui"
 
 # change focus
 bindsym $mod+h focus left
