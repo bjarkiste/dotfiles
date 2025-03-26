@@ -25,7 +25,7 @@ docker()
 {
     if [[ "$1" = "c" ]]; then
         /usr/bin/docker rm -f $(/usr/bin/docker --config="asdf" ps -aq)
-    elif [[ "$1" = "logs" ]]; then
+    elif [[ "$1" = "logs" ]] || [[ "$1" = "exec" ]]; then
         /usr/bin/docker $@
     else
         /usr/bin/docker $@ | cut -c-$(tput cols)
