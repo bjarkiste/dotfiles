@@ -8,5 +8,10 @@ set hlsearch
 set ignorecase
 set smartcase
 
+" Allows copy between rider and system clipboards
 set clipboard=unnamed
 set clipboard+=ideaput
+
+" Rider specific functionality
+nmap gd :action GoToDeclaration<CR>
+nmap gi :action GoToImplementation<CR>
