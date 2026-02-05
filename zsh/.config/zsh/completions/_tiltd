@@ -1,0 +1,30 @@
+#compdef tiltd
+
+local -a cmds
+cmds=(
+  'up:Start tilt for a project'
+  'down:Stop tilt for the current project'
+  'restart:Restart tilt for the current project'
+  'status:Show status'
+  'logs:Follow logs'
+)
+
+local base=${TILTD_BASE:-$HOME/projects}
+
+_arguments -C \
+  '1:command:->cmds' \
+  '2:project:->projects' && return 0
+
+case $state in
+  cmds)
+    _describe -t commands "tiltd command" cmds
+    ;;
+  projects)
+    if [[ $words[2] == up ]]; then
+      local base=${TILTD_BASE:-$HOME/projects}
+      local -a projects
+      projects=(${(f)"$(command find "$base" -mindepth 2 -maxdepth 2 -name Tiltfile -printf '%h\n' 2>/dev/null | xargs -n1 basename | sort -u)"})
+      _describe -t projects "projects" projects
+    fi
+    ;;
+esac

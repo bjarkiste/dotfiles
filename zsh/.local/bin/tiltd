@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/tiltd"
+STATE_FILE="$STATE_DIR/current"
+mkdir -p "$STATE_DIR"
+
+usage() {
+  echo "usage:"
+  echo "  tiltd up <project>"
+  echo "  tiltd down"
+  echo "  tiltd restart"
+  echo "  tiltd status"
+  echo "  tiltd logs"
+  exit 2
+}
+
+need_current() {
+  if [[ ! -f "$STATE_FILE" ]]; then
+    echo "tiltd: no current project set. Run: tiltd up <project>"
+    exit 1
+  fi
+  cat "$STATE_FILE"
+}
+
+cmd="${1:-}"
+case "$cmd" in
+  up)
+    project="${2:-}"
+    [[ -z "$project" ]] && usage
+    echo "$project" > "$STATE_FILE"
+    systemctl --user start "tilt@${project}.service"
+    ;;
+  down)
+    project="$(need_current)"
+    systemctl --user stop "tilt@${project}.service"
+    ;;
+  restart)
+    project="$(need_current)"
+    systemctl --user restart "tilt@${project}.service"
+    ;;
+  status)
+    project="$(need_current)"
+    systemctl --user status "tilt@${project}.service"
+    ;;
+  logs)
+    project="$(need_current)"
+    journalctl --user -u "tilt@${project}.service" -f
+    ;;
+  *)
+    usage
+    ;;
+esac

@@ -5,7 +5,10 @@ fi
 
 # Aliases
 source $HOME/.aliases
-#source <(kubectl completion zsh)
+
+fpath=(~/.config/zsh/completions $fpath)
+autoload -Uz compinit
+compinit
 
 export VISUAL=nvim
 export EDITOR=nvim
