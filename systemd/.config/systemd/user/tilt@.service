@@ -1,0 +1,12 @@
+[Unit]
+Description=Tilt daemon (%i)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/projects/%i
+ExecStart=/usr/bin/tilt up
+ExecStop=/usr/bin/tilt down
+
+[Install]
+WantedBy=default.target
