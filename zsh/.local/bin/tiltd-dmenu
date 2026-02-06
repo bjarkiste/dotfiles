@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+BASE="${DILT_BASE:-$HOME/projects}"
+
+project="$(ls -1 "$BASE" 2>/dev/null \
+  | grep -Fxf <(find "$BASE" -maxdepth 2 -name Tiltfile -printf '%h\n' | xargs -n1 basename) \
+  | rofi -dmenu -p "Tilt project")"
+
+[[ -z "$project" ]] && exit 0
+
+tiltd up "$project"

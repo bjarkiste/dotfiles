@@ -18,5 +18,11 @@ ready="$(jq '[.items[]
 
 total="$(jq '.items | length' <<<"$tiltResource")"
 
-echo "Up $ready/$total"
+service="$(systemctl --user list-units --type=service --state=running 'tilt@*.service' \
+      --no-legend --no-pager 2>/dev/null \
+    | awk '{print $1}' \
+    | head -n1 \
+    | sed 's/tilt@\(.*\)\.service$/\1/')"
+
+echo "$service $ready/$total"
 

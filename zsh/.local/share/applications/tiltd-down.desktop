@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Tiltd down
+Comment=Stop current Tilt daemon
+Exec=tiltd down
+Terminal=false
+Categories=Development;

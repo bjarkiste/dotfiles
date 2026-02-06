@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Tiltd up
+Comment=Start Tilt daemon for a project
+Exec=/home/bjarki/.local/bin/tiltd-dmenu
+Terminal=false
+Categories=Development;
